@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ha-Young Doo — Profile</title>
+  <meta name="description" content="Simple one-page profile for PhD applications." />
+  <meta name="color-scheme" content="light dark">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --muted:#6b7280;
+      --brand:#3b4a66; /* bluish gray */
+      --accent:#4b5563;
+      --panel:#ffffff;
+      --ring:#e5e7eb;
+      --chip:#f3f4f6;
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b0f19; --text:#e5e7eb; --muted:#9ca3af; --brand:#90a4c1; --accent:#9aa0a8; --panel:#111827; --ring:#1f2937; --chip:#1e293b; }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial;
+      background: var(--bg); color: var(--text);
+      position: relative; overflow-x: hidden;
+    }
+
+    .wrap{max-width: 860px; margin: 0 auto; padding: 40px 18px 80px;}
+    .card{ background: var(--panel); border: 1px solid var(--ring); border-radius: var(--radius); padding: 28px; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
+
+    /* Header */
+    .hero{ text-align: center; }
+    .photo{ width: 172px; height: 172px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto; border: 3px solid var(--ring); box-shadow: 0 4px 14px rgba(0,0,0,.08);}   
+    h1{ font-family: 'Merriweather', serif; font-size: clamp(28px, 4.5vw, 46px); margin: 16px 0 4px; font-weight:700; letter-spacing: .3px; color: var(--brand); }
+    .subtitle{ color: var(--muted); font-weight: 500; font-family: 'Poppins'; }
+
+    /* Icon bar */
+    .iconbar{ display:flex; justify-content:center; align-items:center; gap:14px; margin:12px auto 2px; }
+    .iconbtn{ width:44px; height:44px; border-radius:9999px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--ring); background: var(--chip); color: var(--text); text-decoration:none; transition: transform .15s ease, box-shadow .15s ease; }
+    .iconbtn:hover{ transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.1); border-color: var(--brand); color: var(--brand); }
+    .iconbtn svg{ width:20px; height:20px; }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,1,1); white-space:nowrap; border:0; }
+
+    /* Content */
+    .content{ margin-top: 22px; font-size: 18px; line-height: 1.8; font-family: 'Poppins'; }
+    .content strong{ font-weight:600; color: var(--accent); letter-spacing: .2px; }
+    .content a{ color: var(--brand); text-decoration: none; }
+    .content a:hover{ text-decoration: underline; }
+
+    .section{ margin-top: 24px; }
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .tag{ padding:7px 12px; border-radius:999px; background: var(--chip); border:1px solid var(--ring); font-size:13.5px; color:var(--text); font-family:'Poppins'; }
+
+    .foot{ margin-top: 26px; text-align: center; color: var(--muted); font-size: 14px; font-family:'Poppins'; }
+
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{ opacity:0; transform: translateY(8px); animation: fadeUp .6s ease .05s both; }
+      .reveal.delay-1{ animation-delay: .12s }
+      .reveal.delay-2{ animation-delay: .22s }
+    }
+    @keyframes fadeUp{ to{ opacity:1; transform:none } }
+      /* Page-load gradient overlay */
+    body::before{
+      content:""; position: fixed; inset:0; pointer-events:none; z-index:-1;
+      background: linear-gradient(120deg, color-mix(in srgb, var(--brand) 14%, var(--bg)) 0%, var(--bg) 60%);
+      opacity: 0;
+    }
+    @media (prefers-reduced-motion: no-preference){
+      body::before{ animation: bgFade 1.6s ease-out .1s forwards; }
+      @keyframes bgFade{
+        0%{ opacity: 0; transform: scale(1.02); }
+        100%{ opacity: 1; transform: none; }
+      }
+    }
+    @media (prefers-reduced-motion: reduce){
+      body::before{ opacity:1; }
+    }
+      /* Card reveal animation */
+    @media (prefers-reduced-motion: no-preference){
+      .card{ opacity:0; transform: translateY(10px); animation: cardFade .9s ease-out .4s forwards; }
+      @keyframes cardFade{
+        0%{ opacity:0; transform: translateY(14px); }
+        100%{ opacity:1; transform: none; }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <article class="card">
+      <header class="hero">
+        <img class="photo reveal" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=640&auto=format&fit=crop" alt="Portrait of Ha-Young Doo" />
+        <div class="iconbar" aria-label="Primary links">
+          <a class="iconbtn" href="mailto:firstname.lastname@university.ac.kr" title="Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg>
+            <span class="sr-only">Email</span>
+          </a>
+          <a class="iconbtn" href="https://your-lab-homepage.example" target="_blank" rel="noopener" title="Lab homepage" aria-label="Lab homepage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/><path d="M3 12v9h18v-9"/></svg>
+            <span class="sr-only">Lab homepage</span>
+          </a>
+          <a class="iconbtn" href="/cv.pdf" target="_blank" rel="noopener" title="CV" aria-label="CV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14"/><path d="m7 12 5 5 5-5"/><rect x="4" y="19" width="16" height="2" rx="1"/></svg>
+            <span class="sr-only">CV</span>
+          </a>
+          <a class="iconbtn" href="https://github.com/your-username" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.6v-2.3c-3.2.7-3.9-1.6-3.9-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.3 0-1.5.5-2.6 1.2-3.5-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6.2 0C17 5.4 18 5.7 18 5.7c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.5 0 4.9-2.9 6-5.6 6.3.4.3.8 1 .8 2.1v3.1c0 .4.3.7.8.6A12 12 0 0 0 12 .5"/></svg>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </div>
+        <h1 class="reveal delay-1">Ha-Young Doo</h1>
+        <div class="subtitle reveal delay-2">M.S. Student · Chemical & Materials Engineering</div>
+      </header>
+
+      <section class="content">
+        <p>
+          Hi—I'm <strong>Ha-Young</strong>, a late-twenties scientist from Seoul currently pursuing my M.S. in <strong>Chemical & Materials Engineering</strong> at Ewha Womans University. I'm preparing my PhD applications abroad and I enjoy building <strong>simple, reliable research tools</strong> more than chasing buzzwords. Recently, I’ve been exploring how modern <strong>generative models</strong> can help design better <strong>electrocatalysts</strong> and make experiments a little more automated and reproducible.
+        </p>
+        <p>
+          I’m looking for programs where I can grow as a <strong>careful researcher</strong>, collaborate across chemistry and AI, and contribute to open, well-documented workflows. If my background aligns with your lab, I’d love to connect.
+        </p>
+      </section>
+
+      <section class="section" aria-label="Research interests and key skills">
+        <h3 style="margin:0 0 8px;font-size:16px;color:var(--brand);letter-spacing:.3px;font-weight:600;font-family:'Merriweather',serif">Research interests</h3>
+        <div class="tags">
+          <span class="tag">AI for Materials</span>
+          <span class="tag">Electrocatalyst Design (OER)</span>
+          <span class="tag">Generative Models (VAE→DiT→Diffusion)</span>
+          <span class="tag">Equivariant Reps (SE(3))</span>
+          <span class="tag">OC20 / OC22</span>
+        </div>
+
+        <h3 style="margin:16px 0 8px;font-size:16px;color:var(--brand);letter-spacing:.3px;font-weight:600;font-family:'Merriweather',serif">Key skills</h3>
+        <div class="tags">
+          <span class="tag">PyTorch / PyTorch Lightning</span>
+          <span class="tag">Docker & Reproducible ML</span>
+          <span class="tag">Multi-GPU Training</span>
+          <span class="tag">Data Curation & Evaluation</span>
+          <span class="tag">Scientific Writing</span>
+        </div>
+
+        <h3 style="margin:16px 0 8px;font-size:16px;color:var(--brand);letter-spacing:.3px;font-weight:600;font-family:'Merriweather',serif">Languages</h3>
+        <div class="tags">
+          <span class="tag">English (Advanced · TOEFL 110)</span>
+          <span class="tag">Chinese (Advanced)</span>
+          <span class="tag">Korean (Native)</span>
+        </div>
+      </section>
+
+      <p class="foot">© 2025 Ha-Young Doo — one-page profile</p>
+    </article>
+  </main>
+</body>
+</html>

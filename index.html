@@ -62,31 +62,36 @@
     body::before{
       content:""; position: fixed; inset:0; pointer-events:none; z-index:0;
       background: linear-gradient(140deg, color-mix(in srgb, var(--brand) 25%, var(--bg)) 0%, var(--bg) 70%);
-      opacity: 1;
+      opacity: 0;
+      animation: bgFade 2.4s ease-out .2s forwards;
     }
-    @media (prefers-reduced-motion: no-preference){
-      body::before{ animation: bgFade 2.4s ease-out .2s forwards; }
-      @keyframes bgFade{
-        0%{ opacity: 0; transform: scale(1.03); filter: blur(8px); }
-        70%{ opacity: 0.9; transform: scale(1.01); filter: blur(3px); }
-        100%{ opacity: 1; transform: none; filter: none; }
-      }
+    @keyframes bgFade{
+      0%{ opacity: 0; transform: scale(1.03); filter: blur(8px); }
+      70%{ opacity: 0.9; transform: scale(1.01); filter: blur(3px); }
+      100%{ opacity: 1; transform: none; filter: none; }
     }
 
-    @media (prefers-reduced-motion: no-preference){
-      .card{ opacity:0; transform: translateY(24px) scale(0.98); animation: cardFade 1.8s cubic-bezier(.25,.1,.25,1) .6s forwards; }
-      @keyframes cardFade{
-        0%{ opacity:0; transform: translateY(24px) scale(0.97); }
-        60%{ opacity:0.8; transform: translateY(8px) scale(1.01); }
-        100%{ opacity:1; transform: none; }
-      }
+    .card{ 
+      opacity:0; 
+      transform: translateY(24px) scale(0.98); 
+      animation: cardFade 1.8s cubic-bezier(.25,.1,.25,1) .6s forwards; 
     }
+    @keyframes cardFade{
+      0%{ opacity:0; transform: translateY(24px) scale(0.97); }
+      60%{ opacity:0.8; transform: translateY(8px) scale(1.01); }
+      100%{ opacity:1; transform: none; }
+    }
+    
     /* Element reveal helper */
-    @media (prefers-reduced-motion: no-preference){
-      .reveal{ opacity:0; transform: translateY(10px); animation: fadeUp .9s ease both; }
-      .delay-1{ animation-delay: .2s }
-      .delay-2{ animation-delay: .35s }
-      @keyframes fadeUp{ to{ opacity:1; transform:none } }
+    .reveal{ 
+      opacity:0; 
+      transform: translateY(10px); 
+      animation: fadeUp .9s ease both; 
+    }
+    .delay-1{ animation-delay: .2s }
+    .delay-2{ animation-delay: .35s }
+    @keyframes fadeUp{ 
+      to{ opacity:1; transform:none } 
     }
   </style>
 </head>
@@ -95,7 +100,7 @@
     <article class="card">
       <header class="hero">
         <!-- 이미지 파일을 profile.jpg로 같은 폴더에 넣거나, imgur/github 등의 이미지 호스팅 서비스를 사용하세요 -->
-        <img class="photo reveal" src="profile.jpg" alt="Portrait of Ha-Young Doo" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,\
+        <img class="photo reveal" src="https://drive.google.com/uc?export=view&id=1S4ASFCAhRGh-nLsjheA_7h-SFzI8sKsH" alt="Portrait of Ha-Young Doo" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,\
 <svg xmlns=\'http://www.w3.org/2000/svg\' width=\'172\' height=\'172\' viewBox=\'0 0 172 172\'>\
   <defs>\
     <linearGradient id=\'g\' x1=\'0\' x2=\'1\' y1=\'0\' y2=\'1\'>\
